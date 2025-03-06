@@ -59,9 +59,9 @@ def get_available_tables(date: str, time: str) -> list:
             WHERE r.table_id = t.id
               AND r.date = :date
               AND (
-              (r.time BETWEEN TIME(:time, '-0 minutes') AND TIME(:time, '+89 minutes'))
+              (r.time BETWEEN TIME(:time, '-89 minutes') AND TIME(:time, '+89 minutes'))
               OR
-              (:time BETWEEN TIME(r.time, '-0 minutes') AND TIME(r.time, '+89 minutes'))
+              (:time BETWEEN TIME(r.time, '-89 minutes') AND TIME(r.time, '+89 minutes'))
               )
         )
         GROUP BY t.location, t.capacity;
@@ -82,9 +82,9 @@ def is_table_available(date: str, time: str, guests: int, location: str) -> bool
               WHERE r.table_id = t.id
                 AND r.date = :date
                 AND (
-                (r.time BETWEEN TIME(:time, '-0 minutes') AND TIME(:time, '+89 minutes'))
+                (r.time BETWEEN TIME(:time, '-89 minutes') AND TIME(:time, '+89 minutes'))
                 OR
-                (:time BETWEEN TIME(r.time, '-0 minutes') AND TIME(r.time, '+89 minutes'))
+                (:time BETWEEN TIME(r.time, '-89 minutes') AND TIME(r.time, '+89 minutes'))
                 ) 
           );
     """
@@ -108,9 +108,9 @@ def find_available_table(date: str, time: str, guests: int, location: str) -> in
               WHERE r.table_id = t.id
                 AND r.date = :date
                 AND (
-                (r.time BETWEEN TIME(:time, '-0 minutes') AND TIME(:time, '+89 minutes'))
+                (r.time BETWEEN TIME(:time, '-89 minutes') AND TIME(:time, '+89 minutes'))
                 OR
-                (:time BETWEEN TIME(r.time, '-0 minutes') AND TIME(r.time, '+89 minutes'))
+                (:time BETWEEN TIME(r.time, '-89 minutes') AND TIME(r.time, '+89 minutes'))
                 ) 
           )
         LIMIT 1;
