@@ -2,7 +2,7 @@
 
 from aiogram.fsm.context import FSMContext
 
-from booking_bot.database.crud import insert_to_restaurant_table, get_available_tables
+from database.crud import insert_to_restaurant_table
 import logging
 
 

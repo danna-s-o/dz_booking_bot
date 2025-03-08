@@ -1,11 +1,11 @@
 from aiogram import Bot, Dispatcher
-from booking_bot.utils.config import TOKEN
+from utils.config import TOKEN
 import asyncio
 import logging
-from booking_bot.handlers.booking import router as booking_router
-from booking_bot.handlers.payment import router as payment_router
-from booking_bot.database.models import createRestaurantDatabase
-from booking_bot.database.crud import is_tables_empty, add_tables_data
+from handlers.booking import router as booking_router
+from handlers.payment import router as payment_router
+from database.models import createRestaurantDatabase
+from database.crud import is_tables_empty, add_tables_data
 
 async def main():
 

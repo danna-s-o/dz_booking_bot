@@ -8,15 +8,13 @@ from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
 from aiogram.enums import ParseMode
 
-from booking_bot.utils.texts import *
-from booking_bot.keyboards.inline_keyboards import *
-from booking_bot.state.state import *
-from booking_bot.handlers.is_valid import *
-from booking_bot.dicts.preferences import *
-from booking_bot.database.crud import *
-from booking_bot.handlers.payment import cmd_send_invoice
-
-
+from utils.texts import *
+from keyboards.inline_keyboards import *
+from state.state import *
+from handlers.is_valid import *
+from dicts.preferences import *
+from database.crud import *
+from handlers.payment import cmd_send_invoice
 
 router = Router()
 

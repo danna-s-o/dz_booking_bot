@@ -6,8 +6,8 @@ from aiogram.types import Message, LabeledPrice, PreCheckoutQuery
 from aiogram.fsm.context import FSMContext
 from aiogram import Router, F
 
-from booking_bot.utils.config import PAYMENT_TOKEN
-from booking_bot.database.database_functions import cmd_filling_database
+from utils.config import PAYMENT_TOKEN
+from database.database_functions import cmd_filling_database
 
 router = Router()
 

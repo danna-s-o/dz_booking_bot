@@ -1,7 +1,7 @@
 # booking_bot/keyboards/inline_keyboards.py
 
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from booking_bot.dicts.preferences import *
+from dicts.preferences import *
 
 
 def ready_or_not_kb():
