@@ -211,9 +211,9 @@ async def cmd_set_preferences(callback_query: CallbackQuery, state: FSMContext):
     user_data = await state.get_data()
 
     if user_preferences == 'у окна' and user_data['guests'] > 4:
-        await callback_query.message.answer(f'К сожалению, у столиков у окна нет {user_data['guests']} '
-                                            f'посадочных мест, но мы можем предложить вам изменить выбор '
-                                            f'в пользу столика в зале')
+        await callback_query.message.answer(f"К сожалению, у столиков у окна нет {user_data['guests']} "
+                                            f"посадочных мест, но мы можем предложить вам изменить выбор "
+                                            f"в пользу столика в зале")
     else:
 
         if is_table_available(user_data['date'], user_data['time'], user_data['guests'], user_data['preferences']):
