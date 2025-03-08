@@ -31,6 +31,7 @@ async def cmd_filling_database(state: FSMContext):
 
         # Логируем успешное сохранение
         logging.info("Данные успешно сохранены в базу данных")
+        user_data.clear()
 
     except Exception as e:
         # Логируем ошибку
