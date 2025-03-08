@@ -19,6 +19,7 @@ from handlers.payment import cmd_send_invoice
 router = Router()
 
 
+
 # Обработчик команды /start
 @router.message(Command('start'))
 async def cmd_start(message: Message):
