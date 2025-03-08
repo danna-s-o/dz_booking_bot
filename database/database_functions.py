@@ -31,7 +31,9 @@ async def cmd_filling_database(state: FSMContext):
 
         # Логируем успешное сохранение
         logging.info("Данные успешно сохранены в базу данных")
-        user_data.clear()
+        telegram_id = user_data['telegram_id']
+        if telegram_id in user_data:
+            del user_data[telegram_id]
 
     except Exception as e:
         # Логируем ошибку
