@@ -4,6 +4,7 @@ def createRestaurantDatabase():
     conn = sqlite3.connect('restaurant.db')
     cursor = conn.cursor()
 
+
     # Таблица со столиками
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS tables(
