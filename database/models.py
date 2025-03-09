@@ -1,35 +1,32 @@
 import sqlite3
-from contextlib import contextmanager
 
-DATABASE_FILE = "restaurant.db"
+def createRestaurantDatabase():
+    conn = sqlite3.connect('restaurant.db')
+    cursor = conn.cursor()
 
-@contextmanager
-def get_db_connection():
-    conn = sqlite3.connect(DATABASE_FILE)
-    try:
-        yield conn
-    finally:
-        conn.close()
+    # Таблица со столиками
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS tables(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        location VARCHAR(50) NOT NULL,
+        capacity INTEGER NOT NULL
+    )''')
 
-def init_db():
-    with get_db_connection() as conn:
-        cursor = conn.cursor()
-        cursor.execute('''
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY,
-            username TEXT,
-            full_name TEXT,
-            phone_number TEXT
-        )
-        ''')
-        cursor.execute('''
-        CREATE TABLE IF NOT EXISTS bookings (
-            id INTEGER PRIMARY KEY,
-            user_id INTEGER,
-            date TEXT,
-            time TEXT,
-            guests INTEGER,
-            FOREIGN KEY (user_id) REFERENCES users (id)
-        )
-        ''')
-        conn.commit()
+    # Таблица с бронями
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS reservations(
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        table_id INTEGER,
+        telegram_id INTEGER,
+        name TEXT, 
+        surname TEXT,
+        date TEXT,
+        time TEXT,
+        guests INTEGER,
+        preferences TEXT,
+        FOREIGN KEY (table_id) REFERENCES tables(id)
+    )''')
+
+
+    conn.commit()
+    conn.close()

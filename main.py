@@ -4,14 +4,14 @@ import asyncio
 import logging
 from handlers.booking import router as booking_router
 from handlers.payment import router as payment_router
-from database.models import init_db
+from database.models import createRestaurantDatabase
 from database.crud import is_tables_empty, add_tables_data
 
 
 
 async def main():
     logging.basicConfig(level=logging.INFO)
-    init_db()
+    createRestaurantDatabase()
 
     if is_tables_empty():
         add_tables_data()
