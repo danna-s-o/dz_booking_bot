@@ -10,6 +10,7 @@ from database.crud import is_tables_empty, add_tables_data
 
 
 async def main():
+
     logging.basicConfig(level=logging.INFO)
     createRestaurantDatabase()
 
