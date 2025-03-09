@@ -1,4 +1,0 @@
-      PID    PPID    PGID     WINPID   TTY         UID    STIME COMMAND
-      454     376     454      27088  cons0     197609 04:43:05 /usr/bin/PS
-      376       1     376      21668  cons0     197609 02:01:28 /usr/bin/bash
-      195       1     195      14104  ?         197609   Mar  6 /usr/bin/ssh-agent
